@@ -3,7 +3,7 @@ from django.db import models, connection
 
 __author__ = 'confirm IT solutions'
 __email__ = 'contactus@confirm.ch'
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 
 class SearchQuerySet(models.query.QuerySet):
@@ -72,7 +72,7 @@ class SearchQuerySet(models.query.QuerySet):
             # Handle fields without a related model.
             else:
                 table  = meta.db_table
-                column = meta.get_field(field, many_to_many=False).column
+                column = meta.get_field(field).column
 
             # Add field with `table`.`column` style to columns set.
             columns.add('{}.{}'.format(quote_name(table), quote_name(column)))
